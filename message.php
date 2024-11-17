@@ -59,7 +59,7 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="message.php">Encrypt</a></li>
-                                        <li><a class="dropdown-item" href="messageDecrypt.php">Decript</a></li>
+                                        <li><a class="dropdown-item" href="messageDecrypt.php">Decrypt</a></li>
                                     </ul>
                                 </li>
                             </ul>

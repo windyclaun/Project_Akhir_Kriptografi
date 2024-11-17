@@ -1,3 +1,16 @@
+<?php 
+    include './functions/super_encryption/super_encryption.php';
+
+    if(isset($_POST['messageDec']) && isset($_POST['key'])){
+        $encryptedText = $_POST['messageDec'];
+        $key = $_POST['key'];
+        $superDecrypted = superDecrypt($encryptedText, $key, $d, $n);
+        echo "<script>alert('Decrypted Text: $superDecrypted');</script>";
+    }
+
+?>
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,7 +60,7 @@
 
         <!-- Konten Utama -->
 
-        <form action="functions/super_encryption/super_encryption.php" method="post">
+        <form action="" method="post">
             <div class="main-content">
                 <nav class="navbar navbar-expand-lg bg-body-tertiary ">
                     <div class="container-fluid">
@@ -59,7 +72,7 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="message.php">Encrypt</a></li>
-                                        <li><a class="dropdown-item" href="messageDecrypt.php">Decript</a></li>
+                                        <li><a class="dropdown-item" href="messageDecrypt.php">Decrypt</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -69,13 +82,13 @@
                 <div class="form-container">
                     <div class="mb-3">
                         <label for="msg" class="form-label text-dark">Input Encrypted Text</label>
-                        <textarea class="form-control" id="msg" rows="3" name="message"></textarea>
+                        <textarea class="form-control" id="msg" rows="3" name="messageDec"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="key" class="form-label text-dark">Input Key</label>
                         <input type="text" class="form-control" id="key" placeholder="Vigenere Key" name="key">
                     </div>
-                    <button type="submit" class="btn btn-primary w-100">Encrypt</button>
+                    <button type="submit" class="btn btn-primary w-100">Decrypt</button>
                 </div>
             </div>
         </form>

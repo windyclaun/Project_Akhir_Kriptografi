@@ -27,8 +27,8 @@
         }else{
             echo "<script>alert('Data gagal disimpan');</script>";
         }
-
         // $superDecrypted = superDecrypt($superEncrypted, $key, $d, $n);
     }
+    
 
 ?>
