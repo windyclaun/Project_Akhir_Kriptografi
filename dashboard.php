@@ -13,40 +13,57 @@
 </head>
 
 <body>
-
-    <div class="menu-dashboard open">
-        <!-- TOP MENU -->
-        <div class="top-menu">
-            <div class="logo">
-                <img src="logo.jpg" alt="">
-                <span>DASHBOARD</span>
+    <div class="wrapper">
+        <!-- Sidebar Menu -->
+        <div class="menu-dashboard open">
+            <div class="top-menu">
+                <div class="logo">
+                    <img src="logo.jpg" alt="Logo" style="width: 50px; border-radius: 50%;">
+                    <span>DASHBOARD</span>
+                </div>
+                <div class="toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
             </div>
-            <div class="toggle">
-                <i class='bx bx-menu'></i>
+            <div class="menu">
+                <div class="enlace">
+                    <i class="bx bx-user"></i>
+                    <span>Hai, User</span>
+                </div>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Go To
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">Message Cryptography</a></li>
+                            <li><a class="dropdown-item" href="#">Image Steganography</a></li>
+                            <li><a class="dropdown-item" href="#">File Encrypt</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
-        <!-- MENU -->
-        <div class="menu">
-            <div class="enlace">
-                <i class="bx bx-user"></i>
-                <span>Hai, </span>
+
+        <!-- Konten Utama -->
+        <div class="main-content">
+            <div class="form-container">
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label text-dark">Input Plain text</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label text-dark">Input Key</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Kunci Vigenere Key">
+                </div>
             </div>
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        Go To
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" href="#">Message Cryptography</a></li>
-                        <li><a class="dropdown-item" href="#">Image Steganography</a></li>
-                        <li><a class="dropdown-item" href="#">File Encrypt</a></li>
-                    </ul>
-                </li>
-            </ul>
-
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </div>
 
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
+
+
 
 </html>
