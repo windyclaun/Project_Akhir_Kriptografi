@@ -25,18 +25,12 @@ function vigenereDecrypt($ciphertext, $key) {
     foreach (str_split($ciphertext) as $char) {
         if (ctype_alpha($char)) {
             $offset = ord(ctype_upper($char) ? 'A' : 'a');
-            $char = chr((ord($char) - ord($key[$keyIndex]) + 26) % 26 + $offset);
+            // $char = chr((ord($char) - ord($key[$keyIndex]) + 26) % 26 + $offset);
+            $char = chr((ord($char) - $offset - (ord($key[$keyIndex]) - ord('A')) + 26) % 26 + $offset);
             $keyIndex = ($keyIndex + 1) % $keyLength;
         }
         $plaintext .= $char;
     }
     return $plaintext;
 }
-
-// Contoh penggunaan
-$plaintext = "HELLO WORLD";
-$key = "KEY";
-$ciphertext = vigenereEncrypt($plaintext, $key);
-echo "Vigenere Encrypt: " . $ciphertext . "\n";
-echo "Vigenere Decrypt: " . vigenereDecrypt($ciphertext, $key) . "\n";
 ?>

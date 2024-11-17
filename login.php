@@ -1,18 +1,25 @@
 
 <?php  
-	if(isset($_POST['login']) && isset($_POST['password'])){
-		$login = $_POST['login'];
+	include 'connection.php';
+	if(isset($_POST['username']) && isset($_POST['password'])){
+		$username = $_POST['username'];
 		$password = $_POST['password'];
-		echo "Login: $login, Password: $password";
-		echo "<br>";
-		$encrypted_password = password_hash($password, PASSWORD_DEFAULT);
 
-		//algoritma login
-		$decrypt_password = password_verify($password, $encrypted_password);
-		if($decrypt_password){
-			echo "Login Berhasil";
-		}else{
-			echo "Login Gagal";
+		$query = "SELECT * FROM users WHERE username='$username'";
+		$result = mysqli_query($connect, $query);
+		if ($result->num_rows > 0) {
+			$row = mysqli_fetch_array($result);
+			$encrypted_password = $row['password'];
+			//algoritma login
+			$decrypt_password = password_verify($password, $encrypted_password);
+			if($decrypt_password){
+				echo "<script>alert('Login Berhasil');</script>";
+			}else{
+				echo "<script>alert('Password Salah');</script>";
+			}
+		}
+		else{
+			echo "<script>alert('Username tidak ditemukan');</script>";
 		}
 
 	}
@@ -32,10 +39,10 @@
 	<div class="screen">
 		<div class="screen__content">
             <h2>Login</h2>
-			<form class="login">
+			<form class="login" method="post" action="">
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="Username" name="login">
+					<input type="text" class="login__input" placeholder="Username" name="username">
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-lock"></i>
