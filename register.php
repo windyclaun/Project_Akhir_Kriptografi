@@ -1,24 +1,3 @@
-
-<?php  
-	if(isset($_POST['login']) && isset($_POST['password'])){
-		$login = $_POST['login'];
-		$password = $_POST['password'];
-		echo "Login: $login, Password: $password";
-		echo "<br>";
-		$encrypted_password = password_hash($password, PASSWORD_DEFAULT);
-
-		//algoritma login
-		$decrypt_password = password_verify($password, $encrypted_password);
-		if($decrypt_password){
-			echo "Login Berhasil";
-		}else{
-			echo "Login Gagal";
-		}
-
-	}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,21 +10,25 @@
 <div class="container">
 	<div class="screen">
 		<div class="screen__content">
-            <h2>Login</h2>
+            <h2>Register</h2>
 			<form class="login">
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="Username" name="login">
+					<input type="text" class="login__input" placeholder="User name">
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" placeholder="Password" name="password">
+					<input type="password" class="login__input" placeholder="Password">
+				</div>
+                <div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input type="password" class="login__input" placeholder="Re-Password">
 				</div>
 				<button class="button login__submit">
-					<span class="button__text">Log In Now</span>
+					<span class="button__text">REGISTER</span>
 					<i class="button__icon fas fa-chevron-right"></i>
 				</button>				
-                  dont have an account? <a href="register.php">Register</a>
+                Have an account? <a href="login.php">Login</a>
 			</form>
             
 		</div>
