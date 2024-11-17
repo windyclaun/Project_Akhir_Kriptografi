@@ -1,4 +1,11 @@
 <?php
+
+// Menghasilkan kunci RSA
+$p = 61;
+$q = 53;
+$n = $p * $q;
+$phi = ($p - 1) * ($q - 1);
+$e = 17;
 function gcd($a, $b) {
     while ($b != 0) {
         $temp = $b;
@@ -44,22 +51,11 @@ function rsaDecrypt($ciphertext, $d, $n) {
     return $plaintext;
 }
 
-// Menghasilkan kunci RSA
-$p = 61;
-$q = 53;
-$n = $p * $q;
-$phi = ($p - 1) * ($q - 1);
-$e = 17;
+
 
 while (gcd($e, $phi) != 1) {
     $e++;
 }
 
 $d = modInverse($e, $phi);
-
-// Contoh penggunaan
-$plaintext = "HELLO";
-$ciphertext = rsaEncrypt($plaintext, $e, $n);
-echo "RSA Encrypt: " . $ciphertext . "\n";
-echo "RSA Decrypt: " . rsaDecrypt($ciphertext, $d, $n) . "\n";
 ?>
