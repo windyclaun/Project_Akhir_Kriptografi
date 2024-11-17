@@ -5,17 +5,12 @@
 
     function superEncrypt($plainText, $vigenereKey, $rsaPublicKey, $rsaModulus) {
         $vigenereEncrypted = vigenereEncrypt($plainText, $vigenereKey);
-        echo "Vigenere Encrypt: " . $vigenereEncrypted . "\n";
-        echo "<br><br>";
         $rsaEncrypted = rsaEncrypt($vigenereEncrypted, $rsaPublicKey, $rsaModulus);
         return $rsaEncrypted;
     }
 
     function superDecrypt($encryptedText, $vigenereKey, $rsaPrivateKey, $rsaModulus) {
         $rsaDecrypted = rsaDecrypt($encryptedText, $rsaPrivateKey, $rsaModulus);
-        echo "RSA Decrypt: " . $rsaDecrypted;
-        echo "<br><br>";
-
         $vigenereDecrypted = vigenereDecrypt($rsaDecrypted, $vigenereKey);
         return $vigenereDecrypted;
     }
@@ -23,12 +18,17 @@
         $plainText = $_POST['message'];
         $key = $_POST['key'];
         $superEncrypted = superEncrypt($plainText, $key, $e, $n);
-        echo "Super Encrypt: " . $superEncrypted . "\n";
-        echo "<br><br>";
-        $superDecrypted = superDecrypt($superEncrypted, $key, $d, $n);
-        echo "Super Decrypt: " . $superDecrypted . "\n";
-        echo "<br><br>";
+        $query = "INSERT INTO secret_messages (plain_text, vigenere_key, encrypted_text) VALUES ('$plainText', '$key', '$superEncrypted')";
+        $result = mysqli_query($connect, $query);
+        if($result){
+            echo "<script>alert('Data berhasil disimpan');</script>";
+            echo "<script>window.location.href='../../dashboard.php';</script>";
+            exit();
+        }else{
+            echo "<script>alert('Data gagal disimpan');</script>";
+        }
 
+        // $superDecrypted = superDecrypt($superEncrypted, $key, $d, $n);
     }
 
 ?>

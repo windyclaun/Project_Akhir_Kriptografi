@@ -14,6 +14,7 @@
 			$decrypt_password = password_verify($password, $encrypted_password);
 			if($decrypt_password){
 				echo "<script>alert('Login Berhasil');</script>";
+				header("Location: dashboard.php");	
 			}else{
 				echo "<script>alert('Password Salah');</script>";
 			}
