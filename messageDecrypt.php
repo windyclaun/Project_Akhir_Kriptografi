@@ -68,7 +68,7 @@
                 </nav>
                 <div class="form-container">
                     <div class="mb-3">
-                        <label for="msg" class="form-label text-dark">Input Plain text</label>
+                        <label for="msg" class="form-label text-dark">Input Encrypted Text</label>
                         <textarea class="form-control" id="msg" rows="3" name="message"></textarea>
                     </div>
                     <div class="mb-3">
