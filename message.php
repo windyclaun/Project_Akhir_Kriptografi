@@ -36,7 +36,7 @@
                             Go To
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="#">Message Cryptography</a></li>
+                            <li><a class="dropdown-item" href="message.php">Message Cryptography</a></li>
                             <li><a class="dropdown-item" href="#">Image Steganography</a></li>
                             <li><a class="dropdown-item" href="#">File Encrypt</a></li>
                         </ul>
@@ -47,6 +47,23 @@
 
         <!-- Konten Utama -->
         <div class="main-content">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarScroll">
+                        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Mode
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="message.php">Encrypt</a></li>
+                                    <li><a class="dropdown-item" href="#">Decript</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
             <div class="form-container">
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label text-dark">Input Plain text</label>
