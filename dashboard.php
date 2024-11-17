@@ -46,18 +46,22 @@
         </div>
 
         <!-- Konten Utama -->
-        <div class="main-content">
-            <div class="form-container">
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label text-dark">Input Plain text</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label text-dark">Input Key</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Kunci Vigenere Key">
+
+        <form action="functions/super_encryption/super_encryption.php" method="post">
+            <div class="main-content">
+                <div class="form-container">
+                    <div class="mb-3">
+                        <label for="msg" class="form-label text-dark">Input Plain text</label>
+                        <textarea class="form-control" id="msg" rows="3" name="message"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="key" class="form-label text-dark">Input Key</label>
+                        <input type="text" class="form-control" id="key" placeholder="Vigenere Key" name="key">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Encrypt</button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <!-- Bootstrap Bundle JS -->
