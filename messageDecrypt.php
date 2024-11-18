@@ -1,11 +1,12 @@
 <?php 
-    include './functions/super_encryption/super_encryption.php';
+    include 'functions/super_encryption/super_encryption.php';
+    
 
     if(isset($_POST['messageDec']) && isset($_POST['key'])){
         $encryptedText = $_POST['messageDec'];
         $key = $_POST['key'];
         $superDecrypted = superDecrypt($encryptedText, $key, $d, $n);
-        echo "<script>alert('Decrypted Text: $superDecrypted');</script>";
+        $decrypted = true;
     }
 
 ?>
@@ -90,6 +91,14 @@
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Decrypt</button>
                 </div>
+                <?php if(isset($decrypted)): ?>
+                    <div class="form-container">
+                        <div class="mb-3">
+                            <label for="msg" class="form-label text-dark">Decrypted Text</label>
+                            <textarea class="form-control" id="msg" rows="3" name="messageDec" disabled><?php echo $superDecrypted; ?></textarea>
+                        </div>
+                    </div>
+                <?php endif; ?>
             </div>
         </form>
     </div>

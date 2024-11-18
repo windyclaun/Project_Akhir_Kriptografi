@@ -1,5 +1,6 @@
 <?php
-    include '../../connection.php';
+    include 'K:/xampp/htdocs/phpCodes/Project_Akhir_Kriptografi/connection.php';
+    // include '../../connection.php';
     include 'vigenere_algorithm.php';
     include 'rsa_algorithm.php';
 
